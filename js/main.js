@@ -4,19 +4,27 @@ Write a function that parses through the below object and displays all of their
 favorite food dishes as shown:
 */
 
-let person3 = {
-    pizza:["Deep Dish","South Side Thin Crust"],
-    tacos:"Anything not from Taco bell",
-    burgers:"Portillos Burgers",
-    ice_cream:["Chocolate","Vanilla","Oreo"],
-    shakes:[{
-        oberwise:"Chocolate",
-        dunkin:"Vanilla",
-        culvers:"All of them",
-        mcDonalds:"Sham-rock-shake",
-        cupids_candies:"Chocolate Malt"
-    }]
-}
+// let person3 = {
+//     pizza:["Deep Dish","South Side Thin Crust"],
+//     tacos:"Anything not from Taco bell",
+//     burgers:"Portillos Burgers",
+//     ice_cream:["Chocolate","Vanilla","Oreo"],
+//     shakes:[{
+//         oberwise:"Chocolate",
+//         dunkin:"Vanilla",
+//         culvers:"All of them",
+//         mcDonalds:"Sham-rock-shake",
+//         cupids_candies:"Chocolate Malt"
+//     }]
+// }
+// function personInfo(person){
+//     for(let i =0; i < Object.keys(person).length-1; i++){
+//         console.log(Object.keys(person)[i])
+//         console.log(Object.values(person)[i]);    
+//     };
+// };
+
+// personInfo(person3)
 
 
 //=======Exercise #2=========//
@@ -30,9 +38,32 @@ age by 3 years. Use an arrow function for both methods
 */
 
 // Create our Person Prototype
+function Person(name, age){
+    this.name = name;
+    this.age = age;
+
+    // Use an arrow to create the printInfo method
+    this.personInfo = () => {
+        return `The person's name is ${this.name}, and they are ${this.age} years old.`
+    };
+    // Create another arrow function for the addAge method that takes a single parameter
+    // Adding to the age
+    this.addAge = (function() {
+        age = this.age;
+        return function() {return age++}
+    })();    
+};
+
+let mike = new Person('Mike',25);
+console.log(mike.personInfo())
+console.log(mike.addAge())
+console.log(mike.personInfo())
+
+this.printInfo = () => {
+    return `You're ${this.name}, and you are ${this.age} years old.`
+}
 
 
-// Use an arrow to create the printInfo method
 
 // Create another arrow function for the addAge method that takes a single parameter
 // Adding to the age 
@@ -45,3 +76,25 @@ age by 3 years. Use an arrow function for both methods
     If the length is greater than ten console log "Big word". 
     If the length of the string is less than 10 console log "Small Number"
 */
+a = "this is a string"
+b = "small"
+const size = (word) => {
+    console.log(`'${word}' is a `)
+    return new Promise((resolve, reject) => {
+        if(word.length > 10){
+            resolve(true);
+        } else {
+            reject(false);
+        }
+    })
+};
+size(a).then((result) => {
+    console.log('Big word');
+}).catch((error) => {
+    console.log('Small number');
+})
+size(b).then((result) => {
+    console.log('Big word');
+}).catch((error) => {
+    console.log('Small number');
+})
