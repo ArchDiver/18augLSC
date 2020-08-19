@@ -4,27 +4,27 @@ Write a function that parses through the below object and displays all of their
 favorite food dishes as shown:
 */
 
-// let person3 = {
-//     pizza:["Deep Dish","South Side Thin Crust"],
-//     tacos:"Anything not from Taco bell",
-//     burgers:"Portillos Burgers",
-//     ice_cream:["Chocolate","Vanilla","Oreo"],
-//     shakes:[{
-//         oberwise:"Chocolate",
-//         dunkin:"Vanilla",
-//         culvers:"All of them",
-//         mcDonalds:"Sham-rock-shake",
-//         cupids_candies:"Chocolate Malt"
-//     }]
-// }
-// function personInfo(person){
-//     for(let i =0; i < Object.keys(person).length-1; i++){
-//         console.log(Object.keys(person)[i])
-//         console.log(Object.values(person)[i]);    
-//     };
-// };
+let person3 = {
+    pizza:["Deep Dish","South Side Thin Crust"],
+    tacos:"Anything not from Taco bell",
+    burgers:"Portillos Burgers",
+    ice_cream:["Chocolate","Vanilla","Oreo"],
+    shakes:[{
+        oberwise:"Chocolate",
+        dunkin:"Vanilla",
+        culvers:"All of them",
+        mcDonalds:"Sham-rock-shake",
+        cupids_candies:"Chocolate Malt"
+    }]
+}
+function personInfo(person){
+    for(let i =0; i < Object.keys(person).length-1; i++){
+        console.log(Object.keys(person)[i])
+        console.log(Object.values(person)[i]);    
+    };
+};
 
-// personInfo(person3)
+personInfo(person3)
 
 
 //=======Exercise #2=========//
@@ -48,20 +48,22 @@ function Person(name, age){
     };
     // Create another arrow function for the addAge method that takes a single parameter
     // Adding to the age
-    this.addAge = (function() {
-        age = this.age;
-        return function() {return age++}
-    })();    
+    this.addAge = () =>{
+        this.age++;
+        return 'OLDER'
+    };    
 };
 
 let mike = new Person('Mike',25);
+let julian = new Person('Julian', 1);
 console.log(mike.personInfo())
 console.log(mike.addAge())
 console.log(mike.personInfo())
+console.log(julian.personInfo())
+console.log(julian.addAge())
+console.log(julian.personInfo())
 
-this.printInfo = () => {
-    return `You're ${this.name}, and you are ${this.age} years old.`
-}
+
 
 
 
@@ -79,7 +81,7 @@ this.printInfo = () => {
 a = "this is a string"
 b = "small"
 const size = (word) => {
-    console.log(`'${word}' is a `)
+    // console.log(`'${word}' is a `)
     return new Promise((resolve, reject) => {
         if(word.length > 10){
             resolve(true);
