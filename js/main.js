@@ -48,19 +48,19 @@ function Person(name, age){
     };
     // Create another arrow function for the addAge method that takes a single parameter
     // Adding to the age
-    this.addAge = () =>{
-        this.age++;
-        return 'OLDER'
+    this.addAge = (add) =>{
+        this.age += add;
+        return `${add} years older`
     };    
 };
 
 let mike = new Person('Mike',25);
 let julian = new Person('Julian', 1);
 console.log(mike.personInfo())
-console.log(mike.addAge())
+console.log(mike.addAge(1))
 console.log(mike.personInfo())
 console.log(julian.personInfo())
-console.log(julian.addAge())
+console.log(julian.addAge(3))
 console.log(julian.personInfo())
 
 
@@ -90,13 +90,31 @@ const size = (word) => {
         }
     })
 };
-size(a).then((result) => {
+function call(str){
+    size(str).then((result) => {
     console.log('Big word');
 }).catch((error) => {
     console.log('Small number');
-})
-size(b).then((result) => {
-    console.log('Big word');
-}).catch((error) => {
-    console.log('Small number');
-})
+})};
+
+call(a);
+call(b);
+
+// // Joel's examples
+// function promiseTest (test){
+//     return new Promise((resolve,reject) => {
+//         if(test == 'Joel'){
+//             resolve(true)
+//         } else {
+//             reject(false)
+//         }
+//     })
+// }
+
+// function testCall() {promiseTest('Joel').then((result) => {
+//     console.log(result)
+// }).catch((error) => {
+//     console.log(error)
+// })}
+
+// testCall()
